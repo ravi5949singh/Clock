@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Clock Dashboard ⏰</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="dashboard-container">
+
+        <!-- HEADER -->
+        <header class="glass-panel">
+            <h1>Smart Clock Dashboard ⏰</h1>
+            <button id="theme-toggle" class="icon-btn">🌙</button>
+        </header>
+
+        <!-- MAIN GRID -->
+        <main class="dashboard-grid">
+
+            <!-- LEFT -->
+            <div class="glass-panel clock-widget">
+
+                <div class="analog-clock">
+                    <div class="hand hour-hand" id="hour-hand"></div>
+                    <div class="hand minute-hand" id="minute-hand"></div>
+                    <div class="hand second-hand" id="second-hand"></div>
+                    <div class="center-dot"></div>
+
+                    <span class="clock-number num-12">12</span>
+                    <span class="clock-number num-3">3</span>
+                    <span class="clock-number num-6">6</span>
+                    <span class="clock-number num-9">9</span>
+                </div>
+
+                <div class="digital-clock" id="digital-clock"></div>
+
+                <div class="date-display">
+                    <h2 id="day-display"></h2>
+                    <p id="full-date-display"></p>
+                </div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div class="glass-panel events-widget">
+
+                <h2>Event Reminders 📅</h2>
+
+                <form id="event-form" class="event-form">
+                    <input type="text" id="event-title" placeholder="Event name..." required>
+                    <input type="datetime-local" id="event-datetime" required>
+                    <button type="submit" class="btn-primary">Add Event ➕</button>
+                </form>
+
+                <div class="events-container">
+                    <ul id="events-list"></ul>
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <audio id="alert-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

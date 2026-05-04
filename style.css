@@ -1,0 +1,170 @@
+:root {
+    --bg1: #667eea;
+    --bg2: #764ba2;
+    --glass: rgba(255,255,255,0.2);
+    --border: rgba(255,255,255,0.3);
+    --text: #2d3436;
+    --primary: #0984e3;
+}
+
+body.dark-mode {
+    --bg1: #1e1e2f;
+    --bg2: #2a2a4a;
+    --text: #fff;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height:100vh;
+    color:var(--text);
+}
+
+/* BACKGROUND */
+.bg-animation {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:linear-gradient(45deg,var(--bg1),var(--bg2));
+    z-index:-1;
+}
+
+/* LAYOUT */
+.dashboard-container {
+    max-width:1400px;
+    margin:auto;
+    padding:20px;
+}
+
+header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px;
+}
+
+header h1 {
+    font-size:2rem;
+}
+
+.dashboard-grid {
+    display:grid;
+    grid-template-columns:1.2fr 1fr;
+    gap:40px;
+    margin-top:30px;
+}
+
+.glass-panel {
+    background:var(--glass);
+    backdrop-filter:blur(12px);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:30px;
+}
+
+/* CLOCK */
+.clock-widget {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.analog-clock {
+    width:320px;
+    height:320px;
+    border-radius:50%;
+    position:relative;
+    margin-bottom:20px;
+    border:4px solid white;
+}
+
+.hand {
+    position:absolute;
+    bottom:50%;
+    left:50%;
+    transform-origin:bottom;
+}
+
+.hour-hand { height:80px; width:6px; background:black; }
+.minute-hand { height:110px; width:4px; background:gray; }
+.second-hand { height:130px; width:2px; background:red; }
+
+.center-dot {
+    position:absolute;
+    width:12px;
+    height:12px;
+    background:black;
+    border-radius:50%;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+
+.clock-number {
+    position:absolute;
+    font-weight:bold;
+}
+.num-12 { top:10px; left:50%; transform:translateX(-50%); }
+.num-3 { right:10px; top:50%; transform:translateY(-50%); }
+.num-6 { bottom:10px; left:50%; transform:translateX(-50%); }
+.num-9 { left:10px; top:50%; transform:translateY(-50%); }
+
+.digital-clock {
+    font-size:3.5rem;
+    margin:10px 0;
+}
+
+/* EVENTS */
+.event-form {
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    margin-top:20px;
+}
+
+.event-form input {
+    padding:15px;
+    border-radius:10px;
+    border:none;
+}
+
+.btn-primary {
+    padding:15px;
+    background:var(--primary);
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.events-container {
+    margin-top:20px;
+    max-height:500px;
+    overflow:auto;
+}
+
+.event-item {
+    background:white;
+    padding:10px;
+    margin-bottom:10px;
+    border-radius:10px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+    .dashboard-grid {
+        grid-template-columns:1fr;
+    }
+
+    .analog-clock {
+        width:250px;
+        height:250px;
+    }
+}
